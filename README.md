@@ -6,7 +6,7 @@ The purpose of this library is to be used by all COP-PILOT stakeholders to desig
 - Interactions between COP-PILOT stakeholders and the platform
 - Interactions of the COP-PILOT platform and the various Cluster infrastructures.
 
-To exploit this common UML librady and design your desired workflow, please follow the steps below.
+To exploit this common UML library and design your desired workflow, please follow the steps below.
 
 ## Install VSCode with extensions
 - Install [VSCode](https://code.visualstudio.com/)
@@ -22,11 +22,29 @@ Go to File > Preferences > Settings:
   - `plantuml.server` : `https://www.plantuml.com/plantuml`
   - `plantuml.render` : `PlantUMLServer`
 
+## Cluster workflows
+
+If you work for one of the COP-PILOT clusters, go to the respective `clusters/cl<number>` folder.
+In this folder you need to design Cluster and use-case-specific components following the `clusters/cl1/components-cl1-uc1.puml` example.
+Once your UC-specific components are in place, then you may design your cluster workflow following the `clusters/cl1/cop-pilot-wf-cl1-uc1.md` example.
+
+This latter Markdown file imports both the central COP-PILOT components defined in `templates/components-central.puml` as well as your Cluster and UC-specific components designed for a given scenario (e.g., `clusters/cl1/components-cl1-uc1.puml` in this case) to create the end-to-end COP-PILOT ecosystem for this specific scenario.
+
+Any other COP-PILOT UC should follow the same approach, inheriting the central components from the template and extending the workflow with UC specific components according to your scenario.
+
+## Platform workflows
+
+For those partners wishing to design Platform-related workflows, go to the `platform` folder.
+An example workflow shows how components of the central platform interact to realize peering between the ESO and a local DO, both in the same domain.
+
 ## Preview a Markdown file in VSCode
 
-Open the example workflow file `cop-pilot-workflow-example.md`
+Open the example workflow file, e.g., `clusters/cl1/cop-pilot-wf-cl1-uc1.md`
 
 Right click on it and click `Open Preview` or press `Shift+Ctrl+V`.
 
-Shortly you will get the rendered Markdown page with the rendered diagram figure.
+Shortly you will get the rendered Markdown page with the rendered diagram figure as below:
+
+<img src="output/example.png" alt="Example image" style="width:90%; height:auto;">
+
 You can extend this example or generate a similar file with your preferred workflow.

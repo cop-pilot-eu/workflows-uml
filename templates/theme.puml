@@ -27,7 +27,7 @@ skinparam NoteBackgroundColor #FEFECE
 skinparam NoteBorderColor black
 
 ' Padding
-skinparam BoxPadding 10
+skinparam BoxPadding 7
 skinparam ParticipantPadding 10
 
 ' Actors shall have obvious outline
