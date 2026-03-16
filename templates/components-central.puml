@@ -1,0 +1,35 @@
+!includeurl https://raw.githubusercontent.com/cop-pilot-eu/workflows-uml/refs/heads/main/templates/palette.puml
+!includeurl https://raw.githubusercontent.com/cop-pilot-eu/workflows-uml/refs/heads/main/templates/theme.puml
+
+' ======================
+' COP-PILOT Components
+' at the Central Domain
+' ======================
+
+COP_PILOT_BOX_OUTER("Central COP-PILOT Platform")
+
+    COP_PILOT_BOX_WITH_LOGO_INNER("Business\nPortal (BP)")
+        COP_PILOT_SERVICE("LLM")
+        COP_PILOT_SERVICE("Web")
+        COP_PILOT_SERVICE("Cart")
+    END_COP_PILOT_BOX_WITH_LOGO_INNER()
+
+    COP_PILOT_BOX_WITH_LOGO_INNER("Intent\nPlatform (IntP)")
+        COP_PILOT_SERVICE("Intent Platform\nBackend")
+    END_COP_PILOT_BOX_WITH_LOGO_INNER()
+
+    COP_PILOT_BOX_WITH_LOGO_INNER("End-to-End Service\nOrchestrator (ESO)")
+        COP_PILOT_SERVICE("ESO\nPortal")
+        COP_PILOT_SERVICE("ESO\nBackend")
+    END_COP_PILOT_BOX_WITH_LOGO_INNER()
+
+    COP_PILOT_BOX_WITH_LOGO_INNER("Secure Integration\nFabric (SIF)")
+        COP_PILOT_SERVICE("SIF\nController")
+        COP_PILOT_SERVICE("SIF Client\nCentral")
+    END_COP_PILOT_BOX_WITH_LOGO_INNER()
+
+    COP_PILOT_BOX_WITH_LOGO_INNER("CI/CD")
+        COP_PILOT_SERVICE("Automation\nServer")
+    END_COP_PILOT_BOX_WITH_LOGO_INNER()
+
+END_COP_PILOT_BOX_OUTER()

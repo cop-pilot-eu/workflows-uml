@@ -88,8 +88,8 @@ end box
 !endprocedure
 
 ' Compute Cluster Components
-!unquoted procedure CLUSTER_BOX_WITH_LOGO()
-box "<img:https://raw.githubusercontent.com/kubernetes/kubernetes/refs/heads/master/logo/logo.png{scale=0.012}>" #CLUSTER_BOX_COLOR
+!unquoted procedure CLUSTER_BOX_WITH_LOGO($name)
+box "<img:https://raw.githubusercontent.com/kubernetes/kubernetes/refs/heads/master/logo/logo.png{scale=0.01}>\n$name" #CLUSTER_BOX_COLOR
 !endprocedure
 
 !unquoted procedure END_CLUSTER_BOX_WITH_LOGO()
@@ -107,8 +107,8 @@ collections "$name" #CLUSTER_NODES_COLOR
 !endprocedure
 
 ' 5G Components
-!unquoted procedure FIVEG_BOX_WITH_LOGO()
-box "<img:https://raw.githubusercontent.com/cop-pilot-eu/workflows-uml/refs/heads/main/images/logo_5g.png{scale=1.0}>" #FIVEG_BOX_COLOR
+!unquoted procedure FIVEG_BOX_WITH_LOGO($name)
+box "<img:https://raw.githubusercontent.com/cop-pilot-eu/workflows-uml/refs/heads/main/images/logo_5g.png{scale=1.0}>\n$name" #FIVEG_BOX_COLOR
 !endprocedure
 
 !unquoted procedure END_FIVEG_BOX_WITH_LOGO()
