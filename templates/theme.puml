@@ -1,0 +1,121 @@
+!includeurl https://raw.githubusercontent.com/cop-pilot-eu/workflows-uml/refs/heads/main/templates/palette.puml
+
+hide footbox
+!pragma teoz true
+
+' =====================
+' Global Theme
+' =====================
+!theme hacker
+
+' =====================
+' Global Styling
+' =====================
+' Fonts and basic colors
+skinparam DefaultFontSize 20
+skinparam defaultTextAlignment center
+skinparam BackgroundColor #F0F0F0
+skinparam DefaultFontColor black
+
+' Arrow / Message Styling
+skinparam ArrowColor black
+skinparam SequenceMessageFontColor black
+skinparam SequenceMessageFontSize 14
+
+' Notes / Annotations Styling
+skinparam NoteBackgroundColor #FEFECE
+skinparam NoteBorderColor black
+
+' Padding
+skinparam BoxPadding 10
+skinparam ParticipantPadding 10
+
+' Actors shall have obvious outline
+skinparam actor {
+    BorderColor black
+}
+
+' =====================
+' Logos
+' =====================
+
+' https://raw.githubusercontent.com/cop-pilot-eu/workflows-uml/refs/heads/main/images/logo_cop-pilot.png
+' https://raw.githubusercontent.com/cop-pilot-eu/workflows-uml/refs/heads/main/images/logo_5g.png
+' https://raw.githubusercontent.com/kubernetes/kubernetes/refs/heads/master/logo/logo.png
+' https://raw.githubusercontent.com/kubernetes/kubernetes/refs/heads/master/logo/logo_with_border.png
+' https://labs.etsi.org/rep/osl/code/org.etsi.osl.portal.web/-/raw/main/src/images/logo_clear.png
+
+' =====================
+' Reusable Components
+' =====================
+
+!unquoted procedure COP_PILOT_BOX_OUTER($name)
+box "<color:white>$name</color>" #COP_PLT_BOX_COLOR_TEAL_DARK
+!endprocedure
+
+!unquoted procedure END_COP_PILOT_BOX_OUTER()
+end box
+!endprocedure
+
+!unquoted procedure COP_PILOT_BOX_INNER($name)
+box "$name" #COP_PLT_BOX_COLOR_WHITE
+!endprocedure
+
+!unquoted procedure END_COP_PILOT_BOX_INNER()
+end box
+!endprocedure
+
+!unquoted procedure COP_PILOT_BOX_WITH_LOGO_INNER($name)
+box "<img:https://raw.githubusercontent.com/cop-pilot-eu/workflows-uml/refs/heads/main/images/logo_cop-pilot.png{scale=0.8}>\n$name" #COP_PLT_BOX_COLOR_WHITE
+!endprocedure
+
+!unquoted procedure END_COP_PILOT_BOX_WITH_LOGO_INNER()
+end box
+!endprocedure
+
+!unquoted procedure COP_PILOT_SERVICE($name)
+skinparam participantBorderColor TEAL_1
+participant "$name" #COP_PLT_SERVICE_COLOR
+!endprocedure
+
+' Remote Infrastructure Components
+!unquoted procedure REMOTE_INFRA_BOX($name)
+box "<color:white>$name</color>" #REMOTE_INFRA_BOX_COLOR
+!endprocedure
+
+!unquoted procedure END_REMOTE_INFRA_BOX()
+end box
+!endprocedure
+
+' Compute Cluster Components
+!unquoted procedure CLUSTER_BOX_WITH_LOGO()
+box "<img:https://raw.githubusercontent.com/kubernetes/kubernetes/refs/heads/master/logo/logo.png{scale=0.012}>" #CLUSTER_BOX_COLOR
+!endprocedure
+
+!unquoted procedure END_CLUSTER_BOX_WITH_LOGO()
+end box
+!endprocedure
+
+!unquoted procedure CLUSTER_CTRL($name)
+skinparam collectionsBorderColor black
+collections "$name" #CLUSTER_CTRL_COLOR
+!endprocedure
+
+!unquoted procedure CLUSTER_NODES($name)
+skinparam collectionsBorderColor black
+collections "$name" #CLUSTER_NODES_COLOR
+!endprocedure
+
+' 5G Components
+!unquoted procedure FIVEG_BOX_WITH_LOGO()
+box "<img:https://raw.githubusercontent.com/cop-pilot-eu/workflows-uml/refs/heads/main/images/logo_5g.png{scale=1.0}>" #FIVEG_BOX_COLOR
+!endprocedure
+
+!unquoted procedure END_FIVEG_BOX_WITH_LOGO()
+end box
+!endprocedure
+
+!unquoted procedure FIVEG_CTRL($name)
+skinparam participantBorderColor GREEN_1
+participant "$name" #FIVEG_CTRL_COLOR
+!endprocedure
