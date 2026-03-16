@@ -89,7 +89,7 @@ end box
 
 ' Compute Cluster Components
 !unquoted procedure CLUSTER_BOX_WITH_LOGO($name)
-box "<img:https://raw.githubusercontent.com/kubernetes/kubernetes/refs/heads/master/logo/logo.png{scale=0.01}>\n$name" #CLUSTER_BOX_COLOR
+box "<img:https://raw.githubusercontent.com/kubernetes/kubernetes/refs/heads/master/logo/logo.png{scale=0.008}>\n\n$name" #CLUSTER_BOX_COLOR
 !endprocedure
 
 !unquoted procedure END_CLUSTER_BOX_WITH_LOGO()
