@@ -25,21 +25,23 @@ Go to File > Preferences > Settings:
 ## Cluster workflows
 
 If you work for one of the COP-PILOT clusters, go to the respective `clusters/cl<number>` folder.
-In this folder you need to design Cluster and use-case-specific components following the `clusters/cl1/components-cl1-uc1.puml` example.
-Once your UC-specific components are in place, then you may design your cluster workflow following the `clusters/cl1/cop-pilot-wf-cl1-uc1.md` example.
 
-This latter Markdown file imports both the central COP-PILOT components defined in `templates/components-central.puml` as well as your Cluster and UC-specific components designed for a given scenario (e.g., `clusters/cl1/components-cl1-uc1.puml` in this case) to create the end-to-end COP-PILOT ecosystem for this specific scenario.
+In this folder you need to design Cluster and use-case-specific components following [this](clusters/cl1/components-cl1-uc1.puml) example.
+
+Once your UC-specific components are in place, then you may design your cluster workflow following [this](clusters/cl1/cop-pilot-wf-cl1-uc1.md) example.
+
+This latter Markdown file imports both the central COP-PILOT components defined [here](templates/components-central.puml) as well as your Cluster and UC-specific components designed for a given scenario (e.g., [cl1-uc1](clusters/cl1/components-cl1-uc1.puml) in this case) to create the end-to-end COP-PILOT ecosystem for this specific scenario.
 
 Any other COP-PILOT UC should follow the same approach, inheriting the central components from the template and extending the workflow with UC specific components according to your scenario.
 
 ## Platform workflows
 
-For those partners wishing to design Platform-related workflows, go to the `platform` folder.
+For those partners wishing to design Platform-related workflows, go to the [platform](./platform) folder.
 An example workflow shows how components of the central platform interact to realize peering between the ESO and a local DO, both in the same domain.
 
 ## Preview a Markdown file in VSCode
 
-Open the example workflow file, e.g., `clusters/cl1/cop-pilot-wf-cl1-uc1.md`
+Open the example workflow file, e.g., [cop-pilot-wf-cl1-uc1](clusters/cl1/cop-pilot-wf-cl1-uc1.md).
 
 Right click on it and click `Open Preview` or press `Shift+Ctrl+V`.
 
