@@ -9,9 +9,7 @@
 COP_PILOT_BOX_OUTER("Central COP-PILOT Platform")
 
     COP_PILOT_BOX_WITH_LOGO_INNER("Business\nPortal (BP)")
-        COP_PILOT_SERVICE("LLM")
-        COP_PILOT_SERVICE("Web")
-        COP_PILOT_SERVICE("Cart")
+        COP_PILOT_SERVICE("LLM-enhanced\nPortal")
     END_COP_PILOT_BOX_WITH_LOGO_INNER()
 
     COP_PILOT_BOX_WITH_LOGO_INNER("Intent\nPlatform (IntP)")
