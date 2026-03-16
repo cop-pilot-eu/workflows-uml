@@ -5,11 +5,6 @@
 ' COP-PILOT Components in CL1 - UC1
 ' ===================================
 
-actor "Vertical\nEnd User" as VertEndUser #000000
-actor "Infra.\nProvider" as InfPrv #000000
-actor "Service\nProvider" as SvcPrv #000000
-actor "Platform\nAdmin" as PltAdmin #000000
-
 REMOTE_INFRA_BOX("COP-PILOT Cluster 1 - Domain X")
     COP_PILOT_BOX_WITH_LOGO_INNER("SIF")
         COP_PILOT_SERVICE("SIF Client\nRemote")

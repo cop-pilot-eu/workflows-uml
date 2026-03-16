@@ -108,7 +108,7 @@ collections "$name" #CLUSTER_NODES_COLOR
 
 ' 5G Components
 !unquoted procedure FIVEG_BOX_WITH_LOGO($name)
-box "<img:https://raw.githubusercontent.com/cop-pilot-eu/workflows-uml/refs/heads/main/images/logo_5g.png{scale=1.0}>\n$name" #FIVEG_BOX_COLOR
+box "<img:https://raw.githubusercontent.com/cop-pilot-eu/workflows-uml/refs/heads/main/images/logo_5g.png{scale=1.0}>\n\n$name" #FIVEG_BOX_COLOR
 !endprocedure
 
 !unquoted procedure END_FIVEG_BOX_WITH_LOGO()
