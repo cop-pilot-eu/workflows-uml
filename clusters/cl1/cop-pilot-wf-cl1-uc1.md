@@ -1,7 +1,7 @@
 ```plantuml
 
 ' Uncomment this at the end of your design to see only the linked components
-' hide unlinked
+hide unlinked
 
 ' General templates useful for every workflow
 !includeurl https://raw.githubusercontent.com/cop-pilot-eu/workflows-uml/refs/heads/main/templates/palette.puml
