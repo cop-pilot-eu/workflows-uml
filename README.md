@@ -22,6 +22,17 @@ Go to File > Preferences > Settings:
   - `plantuml.server` : `https://www.plantuml.com/plantuml`
   - `plantuml.render` : `PlantUMLServer`
 
+## UML template library
+
+The basic templates of this library can be classified in three categories:
+
+- a [color palette](templates/palette.puml) template providing the main colors.
+- a [theme](templates/theme.puml) template providing the look and feel of the UML environment as well as the style of the primitive elements.
+- a library of [central components](templates/components-central.puml) template providing the central COP-PILOT components.
+
+These templates should be augmented with Cluster-specific ones to compose Cluster-specific workflows.
+More details are provided in the next section.
+
 ## Cluster workflows
 
 If you work for one of the COP-PILOT clusters, go to the respective `clusters/cl<number>` folder.
@@ -48,7 +59,7 @@ Right click on it and click `Open Preview` or press `Shift+Ctrl+V`.
 
 Shortly you will get the rendered Markdown page with the rendered diagram figure as below:
 
-<img src="output/example.png" alt="Example image" style="width:90%; height:auto;">
+<img src="output/example.png" alt="Example image" style="width:40%; height:auto;">
 
 You can extend this example or generate a similar file with your preferred workflow.
 
@@ -62,3 +73,7 @@ hide unlinked
 ```
 
 at the top part of your custom workflow.
+
+Then, the same workflow transforms into a minimal figure showing only the essential elements:
+
+<img src="output/example_min.png" alt="Example image" style="width:40%; height:auto;">
