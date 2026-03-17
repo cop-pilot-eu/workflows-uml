@@ -10,6 +10,10 @@ REMOTE_INFRA_BOX("COP-PILOT Cluster 1 - Domain X")
         COP_PILOT_SERVICE("SIF Client\nRemote")
     END_COP_PILOT_BOX_WITH_LOGO_INNER()
 
+    COP_PILOT_BOX_WITH_LOGO_INNER("CI/CD")
+        COP_PILOT_SERVICE("Automation\nClient")
+    END_COP_PILOT_BOX_WITH_LOGO_INNER()
+
     COP_PILOT_BOX_WITH_LOGO_INNER("Domain\nOrchestrator (DO)")
         COP_PILOT_SERVICE("DO\nPortal")
         COP_PILOT_SERVICE("DO\nBackend")
