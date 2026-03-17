@@ -1,9 +1,9 @@
 ```plantuml
 
+' Uncomment this at the end of your design to see only the linked components
+' hide unlinked
+
 ' Define the stakeholders of this workflow
-' actor "Vertical\nEnd User" as VertEndUser #000000
-' actor "Infra.\nProvider" as InfPrv #000000
-' actor "Platform\nAdmin" as PltAdmin #000000
 actor "Service\nProvider" as SvcPrv #000000
 
 ' General templates useful for every workflow
@@ -15,8 +15,8 @@ actor "Service\nProvider" as SvcPrv #000000
 !includeurl https://raw.githubusercontent.com/cop-pilot-eu/workflows-uml/refs/heads/main/clusters/cl1/components-cl1-uc1.puml
 
 ' =====================
-' Example Flow
+' CL1 - UC1 flow
 ' =====================
-SvcPrv -> LLM: Ask for available domain\nservices for Cluster 1
+SvcPrv -> "LLM-enhanced\nPortal": Ask for available domain\nservices for Cluster 1
 
 ```
