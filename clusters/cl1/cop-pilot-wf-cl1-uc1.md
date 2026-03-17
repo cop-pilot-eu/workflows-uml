@@ -19,6 +19,21 @@ actor "Service\nProvider" as SvcPrv #000000
 ' =====================
 ' CL1 - UC1 flow
 ' =====================
+
+== Chat with the COP-PILOT LLM to identify desired services ==
+
 SvcPrv -> "LLM-enhanced\nPortal": Ask for available domain\nservices for Cluster 1
+"LLM-enhanced\nPortal" -> "ESO\nBackend": Get Cluster 1 services
+"ESO\nBackend" -> "LLM-enhanced\nPortal": 
+"LLM-enhanced\nPortal" -> SvcPrv: 
+
+== Order a specific service via the respective orchestrator ==
+
+SvcPrv -> "LLM-enhanced\nPortal": Order Cluster 1 reconciliation service
+"LLM-enhanced\nPortal" -> "DO\nBackend": Reconciliation service order
+"DO\nBackend" -> "Cluster\nController": Deploy reconciliation service
+"Cluster\nController" -> "DO\nBackend": Deployed
+"DO\nBackend" -> "LLM-enhanced\nPortal": Service order completed
+"LLM-enhanced\nPortal" -> SvcPrv: Service order completed
 
 ```

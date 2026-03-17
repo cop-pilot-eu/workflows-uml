@@ -5,7 +5,7 @@
 ' COP-PILOT Components in CL1 - UC1
 ' ===================================
 
-REMOTE_INFRA_BOX("COP-PILOT Cluster 1 - Domain X")
+REMOTE_INFRA_BOX("COP-PILOT Cluster 1 - Domain RISE")
     COP_PILOT_BOX_WITH_LOGO_INNER("SIF")
         COP_PILOT_SERVICE("SIF Client\nRemote")
     END_COP_PILOT_BOX_WITH_LOGO_INNER()
