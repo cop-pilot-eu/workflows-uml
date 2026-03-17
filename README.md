@@ -50,3 +50,14 @@ Shortly you will get the rendered Markdown page with the rendered diagram figure
 <img src="output/example.png" alt="Example image" style="width:90%; height:auto;">
 
 You can extend this example or generate a similar file with your preferred workflow.
+
+## Show only the necessary blocks
+
+In the figure above, you see the entire view of the COP-PILOT system, although this example only displays a single connection between a stakeholder (i.e., service provider) and the COP-PILOT LLM-enhanced Business Portal.
+To hide the boxes that do not participate in your workflow, consider adding:
+
+```
+hide unlinked
+```
+
+at the top part of your custom workflow.
