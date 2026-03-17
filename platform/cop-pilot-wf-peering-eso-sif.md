@@ -34,11 +34,11 @@ PltAdmin -> "ESO\nPortal": Add SIF network
 
 == Test ESO and SIF interaction ==
 
-PltAdmin -> "ESO\nPortal": Create test SIF identity
+PltAdmin -> "ESO\nPortal": Create 'test' SIF identity
 "ESO\nPortal" -> "ESO\nBackend": Create identity
 "ESO\nBackend" -> "SIF\nController": Create identity
 "SIF\nController" -> "ESO\nBackend": Identity created
 "ESO\nBackend" -> "ESO\nPortal": Identity created
-"ESO\nPortal" -> PltAdmin: Test SIF identity created
+"ESO\nPortal" -> PltAdmin: 'test' SIF identity created
 
 ```
