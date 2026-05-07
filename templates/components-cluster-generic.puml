@@ -1,0 +1,36 @@
+!includeurl https://raw.githubusercontent.com/cop-pilot-eu/workflows-uml/refs/heads/main/templates/palette.puml
+!includeurl https://raw.githubusercontent.com/cop-pilot-eu/workflows-uml/refs/heads/main/templates/theme.puml
+
+' ===================================
+' Generic COP-PILOT Cluster Components
+' For use with any Cluster X - Domain Y
+' ===================================
+
+REMOTE_INFRA_BOX("COP-PILOT Cluster X - Domain Y")
+    COP_PILOT_BOX_WITH_LOGO_INNER("SIF")
+        COP_PILOT_SERVICE("SIF Client\nRemote")
+    END_COP_PILOT_BOX_WITH_LOGO_INNER()
+
+    COP_PILOT_BOX_WITH_LOGO_INNER("CI/CD")
+        COP_PILOT_SERVICE("Automation\nClient")
+    END_COP_PILOT_BOX_WITH_LOGO_INNER()
+
+    COP_PILOT_BOX_WITH_LOGO_INNER("Domain\nOrchestrator (DO)")
+        COP_PILOT_SERVICE("DO\nPortal")
+        COP_PILOT_SERVICE("DO\nBackend")
+    END_COP_PILOT_BOX_WITH_LOGO_INNER()
+
+    COP_PILOT_BOX_WITH_LOGO_INNER("Data\nManagement (DM)")
+        COP_PILOT_SERVICE("DM\nPortal")
+        COP_PILOT_SERVICE("DM\nServer")
+    END_COP_PILOT_BOX_WITH_LOGO_INNER()
+
+    CLUSTER_BOX_WITH_LOGO("Compute Infrastructure")
+        CLUSTER_CTRL("Cluster\nController")
+        CLUSTER_NODES("Cluster\nNode")
+    END_CLUSTER_BOX_WITH_LOGO()
+
+    FIVEG_BOX_WITH_LOGO("Network Infrastructure")
+        FIVEG_CTRL("5G\nController")
+    END_FIVEG_BOX_WITH_LOGO()
+END_REMOTE_INFRA_BOX()
