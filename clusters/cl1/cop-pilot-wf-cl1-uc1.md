@@ -30,10 +30,12 @@ SvcPrv -> "LLM-enhanced\nPortal": Ask for available domain\nservices for Cluster
 == Order a specific service via the respective orchestrator ==
 
 SvcPrv -> "LLM-enhanced\nPortal": Order Cluster 1 reconciliation service
-"LLM-enhanced\nPortal" -> "DO\nBackend": Reconciliation service order
+"LLM-enhanced\nPortal" -> "ESO\nBackend": Reconciliation service order
+"ESO\nBackend" -> "DO\nBackend":
 "DO\nBackend" -> "Cluster\nController": Deploy reconciliation service
 "Cluster\nController" -> "DO\nBackend": Deployed
-"DO\nBackend" -> "LLM-enhanced\nPortal": Service order completed
+"DO\nBackend" -> "ESO\nBackend":
+"ESO\nBackend" -> "LLM-enhanced\nPortal": Service order completed
 "LLM-enhanced\nPortal" -> SvcPrv: Service order completed
 
 ```
