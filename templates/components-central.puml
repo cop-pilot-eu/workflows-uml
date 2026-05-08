@@ -8,12 +8,8 @@
 
 COP_PILOT_BOX_OUTER("Central COP-PILOT Platform")
 
-    COP_PILOT_BOX_WITH_LOGO_INNER("Business\nPortal (BP)")
+    COP_PILOT_BOX_WITH_LOGO_INNER("Business\nMgmt. Portal (BMP)")
         COP_PILOT_SERVICE("LLM-enhanced\nPortal")
-    END_COP_PILOT_BOX_WITH_LOGO_INNER()
-
-    COP_PILOT_BOX_WITH_LOGO_INNER("Intent\nPlatform (IntP)")
-        COP_PILOT_SERVICE("Intent Platform\nBackend")
     END_COP_PILOT_BOX_WITH_LOGO_INNER()
 
     COP_PILOT_BOX_WITH_LOGO_INNER("End-to-End Service\nOrchestrator (ESO)")
