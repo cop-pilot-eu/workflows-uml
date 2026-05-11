@@ -22,7 +22,7 @@ REMOTE_INFRA_BOX("COP-PILOT Cluster X - Domain Y")
 
     COP_PILOT_BOX_WITH_LOGO_INNER("Data\nManagement (DM)")
         COP_PILOT_SERVICE("DM\nPortal")
-        COP_PILOT_SERVICE("DM\nServer")
+        COP_PILOT_SERVICE("DM\nBackend")
     END_COP_PILOT_BOX_WITH_LOGO_INNER()
 
     CLUSTER_BOX_WITH_LOGO("Compute Infrastructure")
