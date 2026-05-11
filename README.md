@@ -49,7 +49,7 @@ Any other COP-PILOT UC should follow the same approach, inheriting the central c
 
 For those partners wishing to design Platform-related workflows, go to the [platform](./platform) folder.
 
-An [example workflow](platform/cop-pilot-wf-peering-eso-sif.md) shows how components of the central platform interact to realize peering between the ESO and the SIF.
+An [example workflow](platform/peering/cop-pilot-wf-peering-eso-sif.md) shows how components of the central platform interact to realize peering between the ESO and the SIF.
 
 ## Preview a Markdown file in VSCode
 
