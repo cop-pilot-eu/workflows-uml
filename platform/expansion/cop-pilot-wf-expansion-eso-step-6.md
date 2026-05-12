@@ -21,13 +21,13 @@ actor "Domain\nOwner" as DomainOwner #000000
 ' Step 6
 ' =====================
 
-note over "ESO\nPortal", "Cluster\nController": This flow follows up platform expansion step 5 "COP-PILOT DO resource discovery"
+note over "ESO\nPortal", "Cluster\nController": This flow follows up platform expansion step 5 "COP-PILOT DO resource discovery, service design, and exposure"
 
-== Step 6: COP-PILOT ESO-DO peering ==
+== Step 6: Federation of new domain's Service Marketplace ==
 
 DomainOwner -> "ESO\nPortal": Browse on Platform OSS view
 DomainOwner -> "ESO\nPortal": Add new OSS
-DomainOwner -> "ESO\nPortal": Configure OSS endpoint, credentials, and  location
+DomainOwner -> "ESO\nPortal": Configure OSS endpoint, credentials, and location
 "ESO\nPortal" -> "ESO\nBackend": Initiate peering
 "ESO\nBackend" -> "SIF\nController": Create connection to OSS
 "SIF\nController" -> "ESO\nBackend": Connection created

@@ -36,6 +36,6 @@ DomainOwner -> "ESO\nPortal": Place service order
 "ESO\nBackend" -> "ESO\nPortal": Successful DO provisioning
 "ESO\nPortal" -> DomainOwner
 
-note over "ESO\nPortal", "Cluster\nController": Go to step 5 "COP-PILOT DO resource discovery"
+note over "ESO\nPortal", "Cluster\nController": Go to step 5 "COP-PILOT DO resource discovery, service design, and exposure"
 
 ```

@@ -23,10 +23,10 @@ actor "Domain\nOwner" as DomainOwner #000000
 
 note over "ESO\nPortal", "SIF\nController": This flow initiates platform expansion to a new private domain.\nIt assumes the ESO has already an account on the SIF platform.
 
-== Step 1: Expansion request ==
+== Step 1: Platform expansion request ==
 
-DomainOwner -> "ESO\nPortal": Browse on Domain expansion view
-"ESO\nPortal" -> "ESO\nBackend": Create domain identity
+DomainOwner -> "ESO\nPortal": Browse on platform expansion view
+"ESO\nPortal" -> "ESO\nBackend": Create an identity for the new domain
 "ESO\nBackend" -> "SIF\nController": Authenticate with ESO credentials
 "SIF\nController" -> "ESO\nBackend": Successful authentication
 "ESO\nBackend" -> "SIF\nController": Create domain identity

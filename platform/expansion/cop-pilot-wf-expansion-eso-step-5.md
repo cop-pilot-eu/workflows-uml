@@ -23,7 +23,7 @@ actor "Domain\nOwner" as DomainOwner #000000
 
 note over "ESO\nPortal", "Cluster\nController": This flow follows up platform expansion step 4 "Order a new COP-PILOT DO for this domain"
 
-== Step 5: COP-PILOT DO resource discovery ==
+== Step 5: COP-PILOT DO resource discovery, service design, and exposure ==
 
 note over "DO\nBackend", "5G\nController": Resource discovery and exposure
 
