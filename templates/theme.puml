@@ -28,7 +28,7 @@ skinparam NoteBorderColor black
 
 ' Padding
 skinparam BoxPadding 4
-skinparam ParticipantPadding 10
+' skinparam ParticipantPadding 10
 
 ' Actors shall have obvious outline
 skinparam actor {
