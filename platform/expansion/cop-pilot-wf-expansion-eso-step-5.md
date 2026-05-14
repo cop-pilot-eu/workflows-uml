@@ -27,6 +27,6 @@ note over "ESO\nPortal", "Cluster\nController": This flow follows up platform ex
 
 note over "DO\nBackend", "5G\nController": Resource discovery and exposure
 
-note over "ESO\nPortal", "Cluster\nController": Go to step 6 "COP-PILOT ESO-DO peering"
+note over "ESO\nPortal", "Cluster\nController": Go to workflow "COP-PILOT ESO-DO peering"
 
 ```
