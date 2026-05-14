@@ -17,34 +17,29 @@ actor "Domain\nOwner" as DomainOwner #000000
 !includeurl https://raw.githubusercontent.com/cop-pilot-eu/workflows-uml/refs/heads/main/templates/components-cluster-generic.puml
 
 ' =====================
-' Platform expansion to new private domain
-' Step 6
+' Federation of distributed
+' domain service marketplaces
 ' =====================
 
-note over "ESO\nPortal", "Cluster\nController": This flow follows up platform expansion step 5 "COP-PILOT DO resource discovery, service design, and exposure"
-
-== Step 6: Federation of new domain's Service Marketplace ==
+== Federation of Distributed Domain Service Marketplaces ==
 
 DomainOwner -> "ESO\nPortal": Browse on Platform OSS view
 DomainOwner -> "ESO\nPortal": Add new OSS
 DomainOwner -> "ESO\nPortal": Configure OSS endpoint, credentials, and location
+"ESO\nPortal" -> "ESO\nBackend": Create a TMF organization party for remote DO
+"ESO\nBackend" -> "ESO\nPortal": TMF organization party created
 "ESO\nPortal" -> "ESO\nBackend": Initiate peering
-"ESO\nBackend" -> "SIF\nController": Create connection to OSS
-"SIF\nController" -> "ESO\nBackend": Connection created
-"ESO\nBackend" -> "DO\nBackend": Authentication with credentials
-"ESO\nBackend" -> "DO\nBackend": TMF service specifications import
-"DO\nBackend" -> "ESO\nBackend": Imported services
-"ESO\nBackend" -> -> "ESO\nPortal": Visualization of imported services
+"ESO\nBackend" -> "DO\nBackend": Authenticate with credentials
+"ESO\nBackend" -> "DO\nBackend": Retrieve service specifications
+"DO\nBackend" -> "ESO\nBackend": Return service specifications
+"ESO\nBackend" -> "ESO\nPortal": Visualize retrieved service specifications
 "ESO\nPortal" -> DomainOwner
-DomainOwner -> "ESO\nPortal": Select desired services
+DomainOwner -> "ESO\nPortal": Select desired services to import
 "ESO\nPortal" -> "ESO\nBackend"
-"ESO\nBackend" -> "DO\nBackend": Import filtering
-"DO\nBackend" -> "ESO\nBackend": Filtered services inserted into service catalog
-"DO\nBackend" -> "ESO\nBackend": Successful peering
-"ESO\nBackend" -> -> "ESO\nPortal": Visualization of filtered services
-"ESO\nPortal" -> DomainOwner: New DO appears on the map
+"ESO\nBackend" -> "DO\nBackend": Request service specification details
+"DO\nBackend" -> "ESO\nBackend": Service specification details retrieved
+"ESO\nBackend" -> "ESO\nPortal": Successful peering
 "ESO\nPortal" -> DomainOwner: Service marketplace updated with imported services
-
-note over "ESO\nPortal", "Cluster\nController": End of platform expansion view"
+"ESO\nPortal" -> DomainOwner: New DO appears on the map
 
 ```
