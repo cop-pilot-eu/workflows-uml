@@ -21,7 +21,7 @@ actor "Domain\nOwner" as DomainOwner #000000
 ' Step 2
 ' =====================
 
-note over "ESO\nPortal", "Cluster\nController": This flow follows up platform expansion step 1 "Expansion request"
+note over "ESO\nPortal", "Cluster\nController": This flow follows up platform expansion step 1 "Platform expansion request"
 
 == Step 2: SIF client deployment on the new domain ==
 
