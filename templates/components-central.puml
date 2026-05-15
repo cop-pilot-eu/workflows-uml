@@ -8,8 +8,13 @@
 
 COP_PILOT_BOX_OUTER("Central COP-PILOT Platform")
 
-    COP_PILOT_BOX_WITH_LOGO_INNER("Business\nMgmt. Portal (BMP)")
-        COP_PILOT_SERVICE("LLM-enhanced\nPortal")
+    COP_PILOT_BOX_WITH_LOGO_INNER("Business\nManagement Portal (BMP)")
+        COP_PILOT_SERVICE("BMP\nUI")
+        COP_PILOT_SERVICE("BMP\nAPI")
+        COP_PILOT_SERVICE("BMP\nProduct Manager")
+        COP_PILOT_SERVICE("BMP\nSecurity Guardrails GW")
+        COP_PILOT_SERVICE("BMP\nLLM")
+        COP_PILOT_SERVICE("BMP\nLLM Explainability")
     END_COP_PILOT_BOX_WITH_LOGO_INNER()
 
     COP_PILOT_BOX_WITH_LOGO_INNER("End-to-End Service\nOrchestrator (ESO)")
