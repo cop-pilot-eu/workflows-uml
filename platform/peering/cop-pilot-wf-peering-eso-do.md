@@ -35,11 +35,28 @@ PltAdmin -> "ESO\nPortal": Configure OSS endpoint, credentials, and location
 "ESO\nBackend" -> "ESO\nPortal": Visualize retrieved service specifications
 "ESO\nPortal" -> PltAdmin
 PltAdmin -> "ESO\nPortal": Select desired services to import
-"ESO\nPortal" -> "ESO\nBackend"
+alt#White #Gold Use existing service catalogue/category
+    PltAdmin -> "ESO\nPortal": Select existing catalogue/category
+else Create new service catalogue/category
+    PltAdmin -> "ESO\nPortal": Input new catalogue/category
+end
+"ESO\nPortal" -> "ESO\nBackend": Force selection of services
 "ESO\nBackend" -> "DO\nBackend": Request service specification details
 "DO\nBackend" -> "ESO\nBackend": Service specification details retrieved
 "ESO\nBackend" -> "ESO\nPortal": Successful peering
 "ESO\nPortal" -> PltAdmin: Service marketplace updated with imported services
 "ESO\nPortal" -> PltAdmin: New DO appears on the map
+
+== Periodic peering check ==
+
+loop#White #Gold every 5 minutes
+"ESO\nBackend" -> "DO\nBackend": Request service specification details
+  alt#White #Yellow Success
+      "DO\nBackend" -> "ESO\nBackend": Service specification details retrieved
+  else Failure
+      "DO\nBackend" -> "ESO\nBackend": Unavailable DO and/or service specification details
+      "ESO\nBackend" -> "ESO\nPortal": Remove service specifications from Marketplace
+  end
+end
 
 ```
