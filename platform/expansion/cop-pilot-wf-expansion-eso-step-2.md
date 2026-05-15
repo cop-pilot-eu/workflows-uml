@@ -17,7 +17,7 @@ actor "Domain\nOwner" as DomainOwner #000000
 !includeurl https://raw.githubusercontent.com/cop-pilot-eu/workflows-uml/refs/heads/main/templates/components-cluster-generic.puml
 
 ' =====================
-' Platform expansion to new private domains
+' Platform expansion to new private domain
 ' Step 2
 ' =====================
 
