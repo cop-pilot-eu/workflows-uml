@@ -17,6 +17,7 @@ actor "Platform\nAdmin" as PltAdmin #000000
 !includeurl https://raw.githubusercontent.com/cop-pilot-eu/workflows-uml/refs/heads/main/templates/components-cluster-generic.puml
 
 ' =====================
+' Peering flow between ESO and DO for the
 ' Federation of distributed
 ' domain service marketplaces
 ' =====================
