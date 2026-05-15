@@ -35,8 +35,8 @@ DomainOwner -> "ESO\nPortal": Place service order
 "Cluster\nController" -> "DO\nBackend": Deploy
 "Cluster\nController" -> "DO\nPortal": Deploy
 "Cluster\nController" -> "ESO\nBackend": Deployed
-"ESO\nBackend" -> "ESO\nPortal": Successful DO provisioning
-"ESO\nPortal" -> DomainOwner
+"ESO\nBackend" -> "ESO\nPortal": Service order completed
+"ESO\nPortal" -> DomainOwner: Successful DO provisioning
 
 note over "ESO\nPortal", "Cluster\nController": Go to step 5 "COP-PILOT DO resource discovery, service design, and exposure"
 
