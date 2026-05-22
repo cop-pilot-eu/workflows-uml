@@ -8,7 +8,6 @@ hide unlinked
 !includeurl https://raw.githubusercontent.com/cop-pilot-eu/workflows-uml/refs/heads/main/templates/theme.puml
 
 ' Define the stakeholders of this workflow
-actor "Domain\nOwner" as DomainOwner #000000
 
 ' General template providing the central COP-PILOT components
 !includeurl https://raw.githubusercontent.com/cop-pilot-eu/workflows-uml/refs/heads/main/templates/components-central.puml
@@ -21,12 +20,15 @@ actor "Domain\nOwner" as DomainOwner #000000
 ' Step 5
 ' =====================
 
-note over "ESO\nPortal", "Cluster\nController": This flow follows up platform expansion step 4 "Order a new COP-PILOT DO for this domain"
+note over "DO\nPortal", "5G\nController": This flow follows up platform expansion step 4 "Order a new COP-PILOT DO for this domain"
 
 == Step 5: COP-PILOT DO resource discovery, service design, and exposure ==
 
-note over "DO\nBackend", "5G\nController": Resource discovery and exposure
 
-note over "ESO\nPortal", "Cluster\nController": Go to workflow "COP-PILOT ESO-DO peering"
+"Cluster\nController" -> "DO\nBackend": Compute Infrastructure Controller discovered\n(details provided at the new COP-PILOT DO request)
+
+"5G\nController" -> "DO\nBackend": Network Infrastructure Controller discovered\n(details provided at the new COP-PILOT DO request)
+
+"DO\nBackend" -> "DO\nPortal": Infrastructure Controllers\n presented as TMF Resource Specifications
 
 ```
