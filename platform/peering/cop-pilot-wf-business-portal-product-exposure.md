@@ -1,0 +1,55 @@
+```plantuml
+
+' Uncomment this at the end of your design to see only the linked components
+hide unlinked
+
+' General templates useful for every workflow
+!includeurl https://raw.githubusercontent.com/cop-pilot-eu/workflows-uml/refs/heads/main/templates/palette.puml
+!includeurl https://raw.githubusercontent.com/cop-pilot-eu/workflows-uml/refs/heads/main/templates/theme.puml
+
+' Define the stakeholders of this workflow
+actor "Business\nPortal Admin" as BusinessPortalAdmin #000000
+
+' General template providing the central COP-PILOT components
+!includeurl https://raw.githubusercontent.com/cop-pilot-eu/workflows-uml/refs/heads/main/templates/components-central.puml
+
+' Business Portal components used in this workflow
+COP_PILOT_BOX_WITH_LOGO_INNER("Business\nPortal")
+    COP_PILOT_SERVICE("Business\nPortal UI")
+    COP_PILOT_SERVICE("Business\nPortal API")
+END_COP_PILOT_BOX_WITH_LOGO_INNER()
+
+' External authentication component
+participant "Authentication\nEntity" as AuthenticationEntity #GREY_3
+
+' =====================
+' Business Portal Product
+' Creation and Exposure
+' =====================
+
+== Authenticate Business Portal admin ==
+
+BusinessPortalAdmin -> AuthenticationEntity: Authentication request
+AuthenticationEntity -> BusinessPortalAdmin: Authentication successful
+
+== Create new Product specification and offering ==
+
+BusinessPortalAdmin -> "Business\nPortal UI": Create new Product\n(Specification + Offering)
+"Business\nPortal UI" -> "ESO\nBackend": Retrieve available\nService Specifications
+"ESO\nBackend" -> "Business\nPortal UI": Available Service Specifications
+
+== Save new Product ==
+
+BusinessPortalAdmin -> "Business\nPortal UI": Save new Product
+"Business\nPortal UI" -> "Business\nPortal API": POST Product\n(reference selected ESO Service Spec)
+"Business\nPortal API" -> "Business\nPortal UI": Product created
+"Business\nPortal UI" -> BusinessPortalAdmin: Product saved
+
+== Expose new Product to Catalog ==
+
+BusinessPortalAdmin -> "Business\nPortal UI": Expose new Product to Catalog
+"Business\nPortal UI" -> "Business\nPortal API": PATCH expose new Product\nto Catalog
+"Business\nPortal API" -> "Business\nPortal UI": Product exposed to Catalog
+"Business\nPortal UI" -> BusinessPortalAdmin: Product exposed
+
+```
