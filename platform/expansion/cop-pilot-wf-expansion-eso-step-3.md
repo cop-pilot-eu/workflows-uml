@@ -27,14 +27,15 @@ note over "ESO\nPortal", "Cluster\nController": This flow follows up platform ex
 
 DomainOwner -> "ESO\nPortal": Browse on domain clusters view
 DomainOwner -> "ESO\nPortal": Add domain cluster
-DomainOwner -> "ESO\nPortal": Fill-in domain cluster endpoint
+DomainOwner -> "ESO\nPortal": Fill-in domain cluster information\n(i.e., cluster config file)
 DomainOwner -> "ESO\nPortal": Add cluster
 "ESO\nPortal" -> "ESO\nBackend"
-"ESO\nBackend" -> "Cluster\nController": Connect
-"ESO\nBackend" -> "Cluster\nController": Fetch kubeconf
-"Cluster\nController" -> "ESO\nBackend": Done
+"ESO\nBackend" -> "SIF\nController": Create secure connection to cluster
+"SIF\nController" -> "ESO\nBackend": Secure connection created
+"ESO\nBackend" -> "Cluster\nController": Authenticate and connect
+"Cluster\nController" -> "ESO\nBackend": Connected
 "ESO\nBackend" -> "ESO\nPortal": Successful cluster onboarding
-"ESO\nPortal" -> DomainOwner
+"ESO\nPortal" -> DomainOwner: Compute cluster visualized
 
 note over "ESO\nPortal", "Cluster\nController": Go to step 4 "Order a new COP-PILOT DO for this domain"
 

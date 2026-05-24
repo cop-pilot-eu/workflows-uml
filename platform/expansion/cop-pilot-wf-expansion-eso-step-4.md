@@ -30,12 +30,14 @@ DomainOwner -> "ESO\nPortal": Add relevant service specification into shopping c
 DomainOwner -> "ESO\nPortal": Configure service registry info, Kubernetes service ID
 DomainOwner -> "ESO\nPortal": Place service order
 "ESO\nPortal" -> "ESO\nBackend": Dispatch service order
+"ESO\nBackend" -> "Cluster\nController": Authenticate and connect
 "ESO\nBackend" -> "Cluster\nController": Deploy DO service package
 "Cluster\nController" -> "DO\nBackend": Deploy
+"Cluster\nController" -> "DO\nPortal": Deploy
 "Cluster\nController" -> "ESO\nBackend": Deployed
-"ESO\nBackend" -> "ESO\nPortal": Successful DO provisioning
-"ESO\nPortal" -> DomainOwner
+"ESO\nBackend" -> "ESO\nPortal": Service order completed
+"ESO\nPortal" -> DomainOwner: Successful DO provisioning
 
-note over "ESO\nPortal", "Cluster\nController": Go to step 5 "COP-PILOT DO resource discovery"
+note over "ESO\nPortal", "Cluster\nController": Go to step 5 "COP-PILOT DO resource discovery, service design, and exposure"
 
 ```

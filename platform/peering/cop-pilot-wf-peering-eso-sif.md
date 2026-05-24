@@ -14,8 +14,9 @@ actor "Platform\nAdmin" as PltAdmin #000000
 !includeurl https://raw.githubusercontent.com/cop-pilot-eu/workflows-uml/refs/heads/main/templates/components-central.puml
 
 ' =====================
-' Peering Flow between
-' ESO and SIF
+' Peering flow between ESO and SIF for
+' enabling COP-PILOT to expand to new domains
+' in a secure and trusted manner
 ' =====================
 
 == Create ESO account on SIF ==
