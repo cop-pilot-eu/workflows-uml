@@ -10,14 +10,14 @@ hide unlinked
 ' Define the stakeholders of this workflow
 actor "Business\nPortal Admin" as BusinessPortalAdmin #000000
 
-' General template providing the central COP-PILOT components
-!includeurl https://raw.githubusercontent.com/cop-pilot-eu/workflows-uml/refs/heads/main/templates/components-central.puml
-
 ' Business Portal components used in this workflow
 COP_PILOT_BOX_WITH_LOGO_INNER("Business\nPortal")
     COP_PILOT_SERVICE("Business\nPortal UI")
     COP_PILOT_SERVICE("Business\nPortal API")
 END_COP_PILOT_BOX_WITH_LOGO_INNER()
+
+' General template providing the central COP-PILOT components
+!includeurl https://raw.githubusercontent.com/cop-pilot-eu/workflows-uml/refs/heads/main/templates/components-central.puml
 
 ' External authentication component
 participant "Authentication\nEntity" as AuthenticationEntity #GREY_3

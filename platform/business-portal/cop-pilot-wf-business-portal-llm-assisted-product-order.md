@@ -10,6 +10,14 @@ hide unlinked
 ' Define the stakeholders of this workflow
 actor "User" as User #000000
 
+' Business Portal components used in this workflow
+COP_PILOT_BOX_WITH_LOGO_INNER("Business\nPortal")
+    COP_PILOT_SERVICE("Business\nPortal UI")
+    COP_PILOT_SERVICE("LLM-assisted\nOrdering Assistant")
+    COP_PILOT_SERVICE("Business\nPortal API")
+    COP_PILOT_SERVICE("Business\nPortal\nBack-End")
+END_COP_PILOT_BOX_WITH_LOGO_INNER()
+
 ' General template providing the central COP-PILOT components
 !includeurl https://raw.githubusercontent.com/cop-pilot-eu/workflows-uml/refs/heads/main/templates/components-central.puml
 
@@ -26,14 +34,6 @@ skinparam sequence {
     GroupFontColor #000000
     GroupHeaderFontColor #000000
 }
-
-' Business Portal components used in this workflow
-COP_PILOT_BOX_WITH_LOGO_INNER("Business\nPortal")
-    COP_PILOT_SERVICE("Business\nPortal UI")
-    COP_PILOT_SERVICE("LLM-assisted\nOrdering Assistant")
-    COP_PILOT_SERVICE("Business\nPortal API")
-    COP_PILOT_SERVICE("Business\nPortal New\nComponent")
-END_COP_PILOT_BOX_WITH_LOGO_INNER()
 
 ' External authentication component
 participant "Authentication\nEntity" as AuthenticationEntity #GREY_3
@@ -71,10 +71,10 @@ User -> "Business\nPortal UI": Select Product and provide intent
 User -> "Business\nPortal UI": Confirm order
 "Business\nPortal UI" -> "LLM-assisted\nOrdering Assistant": Submit confirmed order
 "LLM-assisted\nOrdering Assistant" -> "Business\nPortal API": POST Product Order
-"Business\nPortal API" -> "Business\nPortal New\nComponent": Translate Product to\nService order
-"Business\nPortal New\nComponent" -> "ESO\nBackend": Place Service Order
-"ESO\nBackend" -> "Business\nPortal New\nComponent": Service Order accepted
-"Business\nPortal New\nComponent" -> "Business\nPortal API": Product Order created
+"Business\nPortal API" -> "Business\nPortal\nBack-End": Translate Product to\nService order
+"Business\nPortal\nBack-End" -> "ESO\nBackend": Place Service Order
+"ESO\nBackend" -> "Business\nPortal\nBack-End": Service Order accepted
+"Business\nPortal\nBack-End" -> "Business\nPortal API": Product Order created
 "Business\nPortal API" -> "LLM-assisted\nOrdering Assistant": Product Order reference
 "LLM-assisted\nOrdering Assistant" -> "Business\nPortal UI": Product Order submitted
 "Business\nPortal UI" -> User: Order confirmation
@@ -82,9 +82,9 @@ User -> "Business\nPortal UI": Confirm order
 == Track Product order ==
 
 loop Until order completed
-    "Business\nPortal New\nComponent" -> "ESO\nBackend": Poll Service order status
-    "ESO\nBackend" -> "Business\nPortal New\nComponent": Service order status
-    "Business\nPortal New\nComponent" -> "Business\nPortal API": Update Product order status
+    "Business\nPortal\nBack-End" -> "ESO\nBackend": Poll Service order status
+    "ESO\nBackend" -> "Business\nPortal\nBack-End": Service order status
+    "Business\nPortal\nBack-End" -> "Business\nPortal API": Update Product order status
 end
 
 User -> "Business\nPortal UI": Ask assistant for order status
