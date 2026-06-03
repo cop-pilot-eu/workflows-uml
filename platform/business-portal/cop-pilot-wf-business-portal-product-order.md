@@ -10,66 +10,41 @@ hide unlinked
 ' Define the stakeholders of this workflow
 actor "User" as User #000000
 
-' Business Portal components used in this workflow
-COP_PILOT_BOX_WITH_LOGO_INNER("Business\nPortal")
-    COP_PILOT_SERVICE("Business\nPortal UI")
-    COP_PILOT_SERVICE("Business\nPortal API")
-    COP_PILOT_SERVICE("Business\nPortal\nBack-End")
-END_COP_PILOT_BOX_WITH_LOGO_INNER()
-
 ' General template providing the central COP-PILOT components
 !includeurl https://raw.githubusercontent.com/cop-pilot-eu/workflows-uml/refs/heads/main/templates/components-central.puml
 
-' Keep loop / group fragments readable with the shared dark theme
-skinparam SequenceGroupBackgroundColor #F0F0F0
-skinparam SequenceGroupBodyBackgroundColor #FFFFFF
-skinparam SequenceGroupBorderColor #000000
-skinparam SequenceGroupFontColor #000000
-skinparam SequenceGroupHeaderFontColor #000000
-skinparam sequence {
-    GroupBackgroundColor #F0F0F0
-    GroupBodyBackgroundColor #FFFFFF
-    GroupBorderColor #000000
-    GroupFontColor #000000
-    GroupHeaderFontColor #000000
-}
+' ==========================
+' BMP Product Ordering Flow
+' ==========================
 
-' External authentication component
-participant "Authentication\nEntity" as AuthenticationEntity #GREY_3
+== Authenticate User ==
 
-' =====================
-' Business Portal Product
-' Ordering Flow
-' =====================
-
-== Authenticate user ==
-
-User -> AuthenticationEntity: Authentication request
-AuthenticationEntity -> User: Authentication successful
+User -> "BMP\nFrontend": Login
+"BMP\nFrontend" -> User: Successful login
 
 == Browse Product Marketplace ==
 
-User -> "Business\nPortal UI": Product Marketplace
-"Business\nPortal UI" -> "Business\nPortal API": GET available Products
-"Business\nPortal API" -> "Business\nPortal UI": Available Products
+User -> "BMP\nFrontend": Product Marketplace
+"BMP\nFrontend" -> "BMP\nBackend": GET available Products
+"BMP\nBackend" -> "BMP\nFrontend": Available Products
 
 == Place Product Order ==
 
-User -> "Business\nPortal UI": Place Product Order
-"Business\nPortal UI" -> "Business\nPortal API": POST Product Order
-"Business\nPortal API" -> "Business\nPortal\nBack-End": Translate Product to\nService order
-"Business\nPortal\nBack-End" -> "ESO\nBackend": Place Service Order
+User -> "BMP\nFrontend": Place product order
+"BMP\nFrontend" -> "BMP\nBackend":
+"BMP\nBackend" -> "BMP\nBackend": Translate product to\nservice order
+"BMP\nBackend" -> "ESO\nBackend": Place service order
 
-loop Until order completed
-    "Business\nPortal\nBack-End" -> "ESO\nBackend": Poll Service order status
-    "Business\nPortal\nBack-End" -> "Business\nPortal API": Update Product order status
+loop#White #Gold Until order completed
+    "BMP\nBackend" -> "ESO\nBackend": Poll Service order status
+    "BMP\nBackend" -> "BMP\nBackend": Update Product order status
 end
 
 == View Product Order Status ==
 
-User -> "Business\nPortal UI": View Product Order status
-"Business\nPortal UI" -> "Business\nPortal API": GET Product Order status
-"Business\nPortal API" -> "Business\nPortal UI": Product Order status
-"Business\nPortal UI" -> User: Product Order status
+User -> "BMP\nFrontend": View Product Order status
+"BMP\nFrontend" -> "BMP\nBackend": GET Product Order status
+"BMP\nBackend" -> "BMP\nFrontend": Product Order status
+"BMP\nFrontend" -> User: Product Order status
 
 ```

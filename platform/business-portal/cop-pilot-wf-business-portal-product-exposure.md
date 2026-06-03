@@ -8,48 +8,38 @@ hide unlinked
 !includeurl https://raw.githubusercontent.com/cop-pilot-eu/workflows-uml/refs/heads/main/templates/theme.puml
 
 ' Define the stakeholders of this workflow
-actor "Business\nPortal Admin" as BusinessPortalAdmin #000000
-
-' Business Portal components used in this workflow
-COP_PILOT_BOX_WITH_LOGO_INNER("Business\nPortal")
-    COP_PILOT_SERVICE("Business\nPortal UI")
-    COP_PILOT_SERVICE("Business\nPortal API")
-END_COP_PILOT_BOX_WITH_LOGO_INNER()
+actor "Business\nPortal Admin" as BMPAdmin #000000
 
 ' General template providing the central COP-PILOT components
 !includeurl https://raw.githubusercontent.com/cop-pilot-eu/workflows-uml/refs/heads/main/templates/components-central.puml
 
-' External authentication component
-participant "Authentication\nEntity" as AuthenticationEntity #GREY_3
+' ==================================
+' BMP Product Creation and Exposure
+' ==================================
 
-' =====================
-' Business Portal Product
-' Creation and Exposure
-' =====================
+== Authenticate administrator ==
 
-== Authenticate Business Portal admin ==
-
-BusinessPortalAdmin -> AuthenticationEntity: Authentication request
-AuthenticationEntity -> BusinessPortalAdmin: Authentication successful
+BMPAdmin -> "BMP\nFrontend": Login
+"BMP\nFrontend" -> BMPAdmin: Successful login
 
 == Create new Product specification and offering ==
 
-BusinessPortalAdmin -> "Business\nPortal UI": Create new Product\n(Specification + Offering)
-"Business\nPortal UI" -> "ESO\nBackend": Retrieve available\nService Specifications
-"ESO\nBackend" -> "Business\nPortal UI": Available Service Specifications
+BMPAdmin -> "BMP\nFrontend": Create new Product\n(specification and offering)
+"BMP\nFrontend" -> "ESO\nBackend": Retrieve available\nservice specifications
+"ESO\nBackend" -> "BMP\nFrontend": Available service specifications
 
 == Save new Product ==
 
-BusinessPortalAdmin -> "Business\nPortal UI": Save new Product
-"Business\nPortal UI" -> "Business\nPortal API": POST Product\n(reference selected ESO Service Spec)
-"Business\nPortal API" -> "Business\nPortal UI": Product created
-"Business\nPortal UI" -> BusinessPortalAdmin: Product saved
+BMPAdmin -> "BMP\nFrontend": Save new product
+"BMP\nFrontend" -> "BMP\nBackend": Create product\n(reference selected ESO service spec.)
+"BMP\nBackend" -> "BMP\nFrontend": Product created
+"BMP\nFrontend" -> BMPAdmin: Product visualized
 
 == Expose new Product to Catalog ==
 
-BusinessPortalAdmin -> "Business\nPortal UI": Expose new Product to Catalog
-"Business\nPortal UI" -> "Business\nPortal API": PATCH expose new Product\nto Catalog
-"Business\nPortal API" -> "Business\nPortal UI": Product exposed to Catalog
-"Business\nPortal UI" -> BusinessPortalAdmin: Product exposed
+BMPAdmin -> "BMP\nFrontend": Expose new product to product catalog
+"BMP\nFrontend" -> "BMP\nBackend":
+"BMP\nBackend" -> "BMP\nFrontend": Product exposed to product catalog
+"BMP\nFrontend" -> BMPAdmin:
 
 ```
