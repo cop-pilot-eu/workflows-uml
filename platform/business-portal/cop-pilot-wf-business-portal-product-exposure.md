@@ -17,25 +17,25 @@ actor "Business\nPortal Admin" as BMPAdmin #000000
 ' BMP Product Creation and Exposure
 ' ==================================
 
-== Authenticate administrator ==
+== Authenticate Administrator ==
 
 BMPAdmin -> "BMP\nFrontend": Login
 "BMP\nFrontend" -> BMPAdmin: Successful login
 
-== Create new Product specification and offering ==
+== Create New Product Specification and Offering ==
 
-BMPAdmin -> "BMP\nFrontend": Create new Product\n(specification and offering)
+BMPAdmin -> "BMP\nFrontend": Create new product\n(specification and offering)
 "BMP\nFrontend" -> "ESO\nBackend": Retrieve available\nservice specifications
 "ESO\nBackend" -> "BMP\nFrontend": Available service specifications
 
-== Save new Product ==
+== Save New Product ==
 
 BMPAdmin -> "BMP\nFrontend": Save new product
 "BMP\nFrontend" -> "BMP\nBackend": Create product\n(reference selected ESO service spec.)
 "BMP\nBackend" -> "BMP\nFrontend": Product created
 "BMP\nFrontend" -> BMPAdmin: Product visualized
 
-== Expose new Product to Catalog ==
+== Expose New Product to Catalog ==
 
 BMPAdmin -> "BMP\nFrontend": Expose new product to product catalog
 "BMP\nFrontend" -> "BMP\nBackend":

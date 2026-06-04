@@ -60,7 +60,7 @@ end
 
 User -> "BMP\nFrontend": Ask assistant for order status
 "BMP\nFrontend" -> "BMP\nBackend": Retrieve product order status
-"BMP\nBackend" -> "BMP\nBackend": GET product order status
+"BMP\nBackend" -> "BMP\nBackend": Get product order status
 "BMP\nBackend" -> "BMP\nBackend": Product order status
 "BMP\nBackend" -> "BMP\nFrontend": Explain status and next steps
 "BMP\nFrontend" -> User: Product order status

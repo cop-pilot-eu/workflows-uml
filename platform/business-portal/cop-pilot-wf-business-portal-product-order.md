@@ -24,9 +24,9 @@ User -> "BMP\nFrontend": Login
 
 == Browse Product Marketplace ==
 
-User -> "BMP\nFrontend": Product Marketplace
-"BMP\nFrontend" -> "BMP\nBackend": GET available Products
-"BMP\nBackend" -> "BMP\nFrontend": Available Products
+User -> "BMP\nFrontend": Browse product marketplace
+"BMP\nFrontend" -> "BMP\nBackend": Get available products
+"BMP\nBackend" -> "BMP\nFrontend": Available products
 
 == Place Product Order ==
 
@@ -36,15 +36,15 @@ User -> "BMP\nFrontend": Place product order
 "BMP\nBackend" -> "ESO\nBackend": Place service order
 
 loop#White #Gold Until order completed
-    "BMP\nBackend" -> "ESO\nBackend": Poll Service order status
-    "BMP\nBackend" -> "BMP\nBackend": Update Product order status
+    "BMP\nBackend" -> "ESO\nBackend": Poll service order status
+    "BMP\nBackend" -> "BMP\nBackend": Update product order status
 end
 
 == View Product Order Status ==
 
-User -> "BMP\nFrontend": View Product Order status
-"BMP\nFrontend" -> "BMP\nBackend": GET Product Order status
-"BMP\nBackend" -> "BMP\nFrontend": Product Order status
-"BMP\nFrontend" -> User: Product Order status
+User -> "BMP\nFrontend": View product order status
+"BMP\nFrontend" -> "BMP\nBackend": Get product order status
+"BMP\nBackend" -> "BMP\nFrontend": Product order status
+"BMP\nFrontend" -> User:
 
 ```
