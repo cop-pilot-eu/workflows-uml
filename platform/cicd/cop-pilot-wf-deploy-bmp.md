@@ -25,8 +25,8 @@ Dev -> "Automation\nServer": Push code to main branch\nor trigger pipeline manua
 
 == Teardown existing deployment ==
 
-"Automation\nServer" -> "LLM-enhanced\nPortal": docker compose down (remove old containers)
-"LLM-enhanced\nPortal" -> "Automation\nServer": Old deployment removed
+"Automation\nServer" -> "BMP\nFrontend": docker compose down (remove old containers)
+"BMP\nFrontend" -> "Automation\nServer": Old deployment removed
 
 == Lint checks ==
 
@@ -38,10 +38,10 @@ Dev -> "Automation\nServer": Push code to main branch\nor trigger pipeline manua
 
 == Functional & Smoke Tests ==
 
-"Automation\nServer" -> "LLM-enhanced\nPortal": docker compose up (test instance on :3000)
-"Automation\nServer" -> "LLM-enhanced\nPortal": Run func_test.sh smoke tests
-"LLM-enhanced\nPortal" -> "Automation\nServer": Tests passed
-"Automation\nServer" -> "LLM-enhanced\nPortal": docker compose down (test instance)
+"Automation\nServer" -> "BMP\nFrontend": docker compose up (test instance on :3000)
+"Automation\nServer" -> "BMP\nFrontend": Run func_test.sh smoke tests
+"BMP\nFrontend" -> "Automation\nServer": Tests passed
+"Automation\nServer" -> "BMP\nFrontend": docker compose down (test instance)
 
 == Push image to Harbor Registry ==
 
@@ -51,23 +51,23 @@ Dev -> "Automation\nServer": Push code to main branch\nor trigger pipeline manua
 == Deploy Business Portal ==
 
 "Automation\nServer" -> "Automation\nServer": docker compose pull\n(latest image from Harbor)
-"Automation\nServer" -> "LLM-enhanced\nPortal": docker compose up -d (production)
-"LLM-enhanced\nPortal" -> "Automation\nServer": Portal running on :3000
+"Automation\nServer" -> "BMP\nFrontend": docker compose up -d (production)
+"BMP\nFrontend" -> "Automation\nServer": Portal running on :3000
 
 == Seed initial admin user ==
 
-"Automation\nServer" -> "LLM-enhanced\nPortal": Wait for portal readiness
-"LLM-enhanced\nPortal" -> "Automation\nServer": Portal ready
-"Automation\nServer" -> "LLM-enhanced\nPortal": POST /api/auth/sign-up/email\n(admin credentials)
-"LLM-enhanced\nPortal" -> "Automation\nServer": Admin user created (HTTP 200/201)
+"Automation\nServer" -> "BMP\nFrontend": Wait for portal readiness
+"BMP\nFrontend" -> "Automation\nServer": Portal ready
+"Automation\nServer" -> "BMP\nFrontend": POST /api/auth/sign-up/email\n(admin credentials)
+"BMP\nFrontend" -> "Automation\nServer": Admin user created (HTTP 200/201)
 
 == Expose Portal publicly via SIF ==
 
 "Automation\nServer" -> "SIF\nController": Create Ziti service\n(Business Portal on :3000)
 "SIF\nController" -> "Automation\nServer": Service + policies created
-"SIF\nController" -> "LLM-enhanced\nPortal": Route portal traffic\nvia SIF Frontdoor to :3000
+"SIF\nController" -> "BMP\nFrontend": Route portal traffic\nvia SIF Frontdoor to :3000
 
-note over "SIF\nController", "LLM-enhanced\nPortal"
+note over "SIF\nController", "BMP\nFrontend"
   Business Portal publicly accessible
   via SIF Frontdoor at
   https://business.portal.cop-pilot.rid-intrasoft.eu/

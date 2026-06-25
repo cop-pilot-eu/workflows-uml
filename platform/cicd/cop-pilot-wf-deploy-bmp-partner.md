@@ -13,7 +13,7 @@ actor "Partner\nAdmin" as PartnerAdmin #000000
 ' General template providing the central COP-PILOT components
 !includeurl https://raw.githubusercontent.com/cop-pilot-eu/workflows-uml/refs/heads/main/templates/components-central.puml
 
-note over "LLM-enhanced\nPortal"
+note over "BMP\nBackend"
   (Partner VM)
 end note
 
@@ -34,14 +34,14 @@ PartnerAdmin -> "Automation\nServer": Trigger pipeline manually\n(select AGENT_L
 
 == Deploy Business Portal on Partner VM ==
 
-"Automation\nServer" -> "LLM-enhanced\nPortal": docker compose up -d\n(inject env variables)
-"LLM-enhanced\nPortal" -> "Automation\nServer": Portal running on :3000
+"Automation\nServer" -> "BMP\nBackend": docker compose up -d\n(inject env variables)
+"BMP\nBackend" -> "Automation\nServer": Portal running on :3000
 
 == Seed initial admin user (optional) ==
 
-"Automation\nServer" -> "LLM-enhanced\nPortal": Wait for portal readiness
-"LLM-enhanced\nPortal" -> "Automation\nServer": Portal ready
-"Automation\nServer" -> "LLM-enhanced\nPortal": POST /api/auth/sign-up/email\n(partner admin credentials)
-"LLM-enhanced\nPortal" -> "Automation\nServer": Admin user created (HTTP 200/201)
+"Automation\nServer" -> "BMP\nBackend": Wait for portal readiness
+"BMP\nBackend" -> "Automation\nServer": Portal ready
+"Automation\nServer" -> "BMP\nBackend": POST /api/auth/sign-up/email\n(partner admin credentials)
+"BMP\nBackend" -> "Automation\nServer": Admin user created (HTTP 200/201)
 
 ```
