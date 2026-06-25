@@ -14,7 +14,7 @@ actor "Service\nProvider" as SP #000000
 COP_PILOT_BOX_OUTER("CI/CD Platform")
     COP_PILOT_BOX_WITH_LOGO_INNER("CI/CD")
         COP_PILOT_SERVICE("GitHub")
-        COP_PILOT_SERVICE("Service\nRegistry")
+        COP_PILOT_SERVICE("Artefact\nRegistry")
         COP_PILOT_SERVICE("CD\nPlugin")
     END_COP_PILOT_BOX_WITH_LOGO_INNER()
 END_COP_PILOT_BOX_OUTER()
@@ -50,13 +50,13 @@ SP -> "GitHub": Push commit\n(via webhook or manual trigger)
 
 SP -> "GitHub": Tag commit\n(via webhook or manual trigger)
 "GitHub" -> "GitHub": Build image,\npackage Helm chart
-"GitHub" -> "Service\nRegistry": Push image and chart\n(versioned artefacts)
-"Service\nRegistry" -> SP: Report release outcome
+"GitHub" -> "Artefact\nRegistry": Push image and chart\n(versioned artefacts)
+"Artefact\nRegistry" -> SP: Report release outcome
 
 == Stage 3: Deployment validation through the orchestrators ==
 
-"Service\nRegistry" -> "CD\nPlugin": Webhook (artefact published)
-"CD\nPlugin" -> "Service\nRegistry": Fetch published artefacts
+"Artefact\nRegistry" -> "CD\nPlugin": Webhook (artefact published)
+"CD\nPlugin" -> "Artefact\nRegistry": Fetch published artefacts
 
 == Preflight checks ==
 
@@ -77,8 +77,8 @@ end
 == Validate in test environment ==
 
 "CD\nPlugin" -> "Test\nOrchestrator": Submit Service Test\n(TMF653) for new release
-"Test\nOrchestrator" -> "Service\nRegistry": Fetch image
-"Service\nRegistry" -> "Test\nOrchestrator": Image
+"Test\nOrchestrator" -> "Artefact\nRegistry": Fetch image
+"Artefact\nRegistry" -> "Test\nOrchestrator": Image
 "Test\nOrchestrator" -> "CD\nPlugin": Smoke test result\n(startup, connectivity, interfaces)
 "CD\nPlugin" -> SP: Report smoke test result
 
@@ -86,14 +86,8 @@ end
 
 "CD\nPlugin" -> "Prod\nOrchestrator": Submit Service Order\n(TMF641) for updated release
 
-note over "CD\nPlugin", "Prod\nOrchestrator"
-  Single-cluster apps are ordered directly on OpenSlice (DO);
-  multi-cluster apps are ordered on HypO (ESO), which
-  dispatches resource orders to the relevant DOs.
-end note
-
-"Prod\nOrchestrator" -> "Service\nRegistry": Fetch image
-"Service\nRegistry" -> "Prod\nOrchestrator": Image
+"Prod\nOrchestrator" -> "Artefact\nRegistry": Fetch image
+"Artefact\nRegistry" -> "Prod\nOrchestrator": Image
 "Prod\nOrchestrator" -> "Prod\nOrchestrator": Provision resources\n& deploy service
 "Prod\nOrchestrator" -> "CD\nPlugin": Order status\n(tracked to terminal state)
 "CD\nPlugin" -> SP: Notify result\n(success or classified failure)
