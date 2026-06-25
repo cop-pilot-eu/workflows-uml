@@ -32,6 +32,7 @@ User -> "BMP\nFrontend": Browse product marketplace
 
 User -> "BMP\nFrontend": Place product order
 "BMP\nFrontend" -> "BMP\nBackend":
+"BMP\nBackend" -> "BMP\nBackend": Validate product order
 "BMP\nBackend" -> "BMP\nBackend": Translate product to\nservice order
 "BMP\nBackend" -> "ESO\nBackend": Place service order
 
