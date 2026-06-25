@@ -35,6 +35,13 @@ skinparam actor {
     BorderColor black
 }
 
+' Group / Fragment (alt, loop, opt, par) Styling
+skinparam sequenceGroupBackgroundColor #DDDDDD
+skinparam sequenceGroupBodyBackgroundColor transparent
+skinparam sequenceGroupBorderColor black
+skinparam sequenceGroupFontColor black
+skinparam sequenceGroupHeaderFontColor black
+
 ' =====================
 ' Logos
 ' =====================
