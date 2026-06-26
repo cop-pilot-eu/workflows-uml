@@ -13,7 +13,7 @@ hide footbox
 ' =====================
 ' Fonts and basic colors
 skinparam DefaultFontSize 20
-skinparam defaultTextAlignment center
+skinparam DefaultTextAlignment center
 skinparam BackgroundColor #F0F0F0
 skinparam DefaultFontColor black
 
